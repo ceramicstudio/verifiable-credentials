@@ -18,7 +18,9 @@ yarn install
 yarn generate
 ```
 
-3. Finally, run your application in a new terminal (first ensure you are running node v16 in your terminal):
+3. Create a .env file with a SECRET_KEY - feel free to copy-paste the dummy seed in the .env.example file.
+
+4. Finally, run your application in a new terminal (first ensure you are running node v16 in your terminal):
 
 ```bash
 nvm use 16
