@@ -6,7 +6,9 @@
     "module": "esnext",
     "rootDir": "./",
     "moduleResolution": "node",
+    "outDir": "dist",
     "esModuleInterop": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "resolveJsonModule": true
   }
 }

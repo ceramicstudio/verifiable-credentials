@@ -1,11 +1,16 @@
-## Veramo Node Tutorial
+# Verifiable Credentials on ComposeDB with Veramo
 
-Example repo for Veramo Node Tutorial: [https://veramo.io/docs/node_tutorials/node_setup_identifiers](https://veramo.io/docs/node_tutorials/node_setup_identifiers)
+There are corresponding README documents in each of the child folders within this repository. You can follow the instructions on those documents, which must happen in the following order:
 
-## Usage
+1. express-veramo
+2. client
 
-    yarn
-    yarn ts-node --esm ./src/list-identifiers.ts
-    yarn ts-node --esm ./src/create-identifier.ts
-    yarn ts-node --esm ./src/create-credential.ts
-    yarn ts-node --esm ./src/verify-credential.ts
+## Generate Verifiable Credentials (in both EIP712 and JWT format) with Veramo
+
+The express-veramo directory exposes several API paths for creating and verifying Verifiable Credentials using Veramo.
+
+## Save and Query Verifiable Credentials on ComposeDB (Ceramic Network)
+
+The client directory contains ComposeDB schema definitions, a ComposeDB server configuration suitable for local development, pre-written queries, and a simple UI to show how credentials generated from Veramo can be saved to and queried from ComposeDB (on the Ceramic Network).
+
+Please follow the more detailed instructions in the corresponding README files in the order outlined above.
