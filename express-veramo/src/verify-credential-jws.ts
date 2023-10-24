@@ -10,13 +10,13 @@ export async function verifyJWT(cred: any) {
         id: cred.credentialSubject.id.id,
       },
       issuer: cred.issuer,
-      type: ["VerifiableCredential", "TrustedReviewer"],
+      type: ["VerifiableCredential", "VettedReviewer"],
       "@context": [
         "https://www.w3.org/2018/credentials/v1",
-        "https://beta.api.schemas.serto.id/v1/public/trusted-reviewer/1.0/ld-context.json",
+        "https://beta.api.schemas.serto.id/v1/public/vetted-reviewer/1.0/ld-context.json"
       ],
       credentialSchema: {
-        id: "https://beta.api.schemas.serto.id/v1/public/trusted-reviewer/1.0/json-schema.json",
+        id: "https://beta.api.schemas.serto.id/v1/public/vetted-reviewer/1.0/json-schema.json",
         type: "JsonSchemaValidator2018",
       },
       issuanceDate: cred.issuanceDate,
