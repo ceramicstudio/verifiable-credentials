@@ -27,6 +27,10 @@ nvm use 16
 yarn dev
 ```
 
+5. Visit `http://localhost:3000/` to generate, store, and verify EIP712 Verifiable Credentials
+
+6. Visit `http://localhost:3000/jwt` to generate, store, and verify Verifiable Credentials in JWT format
+
 ## Learn More
 
 To learn more about Ceramic please visit the following links
