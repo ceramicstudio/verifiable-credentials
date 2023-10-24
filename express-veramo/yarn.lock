@@ -3794,20 +3794,6 @@
     expo-modules-autolinking "^0.0.3"
     invariant "^2.2.4"
 
-"@veramo-community/lds-ecdsa-secp256k1-recovery2020@github:uport-project/EcdsaSecp256k1RecoverySignature2020":
-  version "0.0.8"
-  uid ab0db52de6f4e6663ef271a48009ba26e688ef9b
-  resolved "https://codeload.github.com/uport-project/EcdsaSecp256k1RecoverySignature2020/tar.gz/ab0db52de6f4e6663ef271a48009ba26e688ef9b"
-  dependencies:
-    "@bitauth/libauth" "^1.19.1"
-    "@digitalcredentials/jsonld" "^5.2.1"
-    "@digitalcredentials/jsonld-signatures" "^9.3.1"
-    "@ethersproject/transactions" "^5.6.2"
-    "@trust/keyto" "^1.0.1"
-    base64url "^3.0.1"
-    crypto-ld "^7.0.0"
-    json-stringify-deterministic "^1.0.7"
-
 "@veramo-community/lds-ecdsa-secp256k1-recovery2020@uport-project/EcdsaSecp256k1RecoverySignature2020":
   version "0.0.8"
   resolved "git+ssh://git@github.com/uport-project/EcdsaSecp256k1RecoverySignature2020.git#ab0db52de6f4e6663ef271a48009ba26e688ef9b"
@@ -11538,7 +11524,7 @@ ws@^8.13.0:
 
 xml2js@0.5.0:
   version "0.5.0"
-  resolved "https://registry.npmjs.org/xml2js/-/xml2js-0.5.0.tgz"
+  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.5.0.tgz#d9440631fbb2ed800203fad106f2724f62c493b7"
   integrity sha512-drPFnkQJik/O+uPKpqSgr22mpuFHqKdbS835iAQrUC73L2F5WkboIRd63ai/2Yg6I1jzifPFKH2NTK+cfglkIA==
   dependencies:
     sax ">=0.6.0"
@@ -11546,7 +11532,7 @@ xml2js@0.5.0:
 
 xml2js@^0.4.23:
   version "0.4.23"
-  resolved "https://registry.npmjs.org/xml2js/-/xml2js-0.4.23.tgz"
+  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.23.tgz#a0c69516752421eb2ac758ee4d4ccf58843eac66"
   integrity sha512-ySPiMjM0+pLDftHgXY4By0uswI3SPKLDw/i3UXbnO8M/p28zqexCUoPmQFrYD+/1BzhGJSs2i1ERWKJAtiLrug==
   dependencies:
     sax ">=0.6.0"
