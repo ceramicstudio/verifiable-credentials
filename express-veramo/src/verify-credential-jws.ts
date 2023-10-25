@@ -6,19 +6,13 @@ export async function verifyJWT(cred: any) {
   const result = await agent.verifyCredential({
     credential: {
       credentialSubject: {
-        isTrusted: true,
+        isTrusted: cred.credentialSubject.isTrusted,
         id: cred.credentialSubject.id.id,
       },
       issuer: cred.issuer,
-      type: ["VerifiableCredential", "VettedReviewer"],
-      "@context": [
-        "https://www.w3.org/2018/credentials/v1",
-        "https://beta.api.schemas.serto.id/v1/public/vetted-reviewer/1.0/ld-context.json"
-      ],
-      credentialSchema: {
-        id: "https://beta.api.schemas.serto.id/v1/public/vetted-reviewer/1.0/json-schema.json",
-        type: "JsonSchemaValidator2018",
-      },
+      type: cred.type,
+      "@context": cred["@context"],
+      credentialSchema: cred.credentialSchema,
       issuanceDate: cred.issuanceDate,
       proof: cred.proof,
     },
