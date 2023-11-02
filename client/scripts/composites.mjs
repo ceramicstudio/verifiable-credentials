@@ -32,9 +32,26 @@ export const writeComposite = async (spinner) => {
     "./composites/01-verifiableCredentialJwt.graphql"
   );
 
+  const subjectComposite = await createComposite(
+    ceramic,
+    "./composites/02-genericSubject.graphql"
+  );
+
+  const jwtGenericSchema = readFileSync("./composites/03-verifiableJwtGeneric.graphql", {
+    encoding: "utf-8",
+  // @ts-ignore
+  }).replace("$SUBJECT_ID", subjectComposite.modelIDs[0]);
+
+  const jwtGenericComposite = await Composite.create({
+    ceramic,
+    schema: jwtGenericSchema,
+  });
+
   const composite = Composite.from([
     vcComposite,
-    jwtComposite
+    jwtComposite,
+    subjectComposite,
+    jwtGenericComposite
   ]);
 
   await writeEncodedComposite(composite, "./src/__generated__/definition.json");
