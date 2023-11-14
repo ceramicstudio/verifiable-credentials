@@ -22,25 +22,24 @@ export const writeComposite = async (spinner) => {
   await authenticate();
   spinner.info("writing composite to Ceramic");
 
-  const subjectComposite = await createComposite(
+  const verifiableCredentialComposite = await createComposite(
     //@ts-ignore
     ceramic,
-    "./composites/00-credentialSubject.graphql"
+    "./composites/01-verifiableCredential.graphql"
   );
 
-  const verifiableCredentialSchema = readFileSync("./composites/01-verifiableCredential.graphql", {
-    encoding: "utf-8",
-  // @ts-ignore
-  }).replace("$SUBJECT_ID", subjectComposite.modelIDs[0]);
+  // const verifiableCredentialSchema = readFileSync("./composites/01-verifiableCredential.graphql", {
+  //   encoding: "utf-8",
+  // // @ts-ignore
+  // }).replace("$SUBJECT_ID", subjectComposite.modelIDs[0]);
 
-  const verifiableCredentialComposite = await Composite.create({
-    //@ts-ignore
-    ceramic,
-    schema: verifiableCredentialSchema,
-  });
+  // const verifiableCredentialComposite = await Composite.create({
+  //   //@ts-ignore
+  //   ceramic,
+  //   schema: verifiableCredentialSchema,
+  // });
 
   const composite = Composite.from([
-    subjectComposite,
     verifiableCredentialComposite
   ]);
 
