@@ -39,11 +39,11 @@ export const writeComposite = async (spinner) => {
   //   schema: verifiableCredentialSchema,
   // });
 
-  const composite = Composite.from([
-    verifiableCredentialComposite
-  ]);
+  // const composite = Composite.from([
+  //   verifiableCredentialComposite
+  // ]);
 
-  await writeEncodedComposite(composite, "./src/__generated__/definition.json");
+  await writeEncodedComposite(verifiableCredentialComposite, "./src/__generated__/definition.json");
   spinner.info("creating composite for runtime usage");
   await writeEncodedCompositeRuntime(
     //@ts-ignore
