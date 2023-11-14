@@ -22,51 +22,44 @@ export const writeComposite = async (spinner) => {
   await authenticate();
   spinner.info("writing composite to Ceramic");
 
-  const vcComposite = await createComposite(
-    ceramic,
-    "./composites/00-verifiableCredential.graphql"
-  );
-
-  const jwtComposite = await createComposite(
-    ceramic,
-    "./composites/01-verifiableCredentialJwt.graphql"
-  );
-
   const subjectComposite = await createComposite(
+    //@ts-ignore
     ceramic,
-    "./composites/02-genericSubject.graphql"
+    "./composites/00-credentialSubject.graphql"
   );
 
-  const jwtGenericSchema = readFileSync("./composites/03-verifiableJwtGeneric.graphql", {
+  const verifiableCredentialSchema = readFileSync("./composites/01-verifiableCredential.graphql", {
     encoding: "utf-8",
   // @ts-ignore
   }).replace("$SUBJECT_ID", subjectComposite.modelIDs[0]);
 
-  const jwtGenericComposite = await Composite.create({
+  const verifiableCredentialComposite = await Composite.create({
+    //@ts-ignore
     ceramic,
-    schema: jwtGenericSchema,
+    schema: verifiableCredentialSchema,
   });
 
   const composite = Composite.from([
-    vcComposite,
-    jwtComposite,
     subjectComposite,
-    jwtGenericComposite
+    verifiableCredentialComposite
   ]);
 
   await writeEncodedComposite(composite, "./src/__generated__/definition.json");
   spinner.info("creating composite for runtime usage");
   await writeEncodedCompositeRuntime(
+    //@ts-ignore
     ceramic,
     "./src/__generated__/definition.json",
     "./src/__generated__/definition.js"
   );
   spinner.info("deploying composite");
   const deployComposite = await readEncodedComposite(
+    //@ts-ignore
     ceramic,
     "./src/__generated__/definition.json"
   );
 
+  // @ts-ignore
   await deployComposite.startIndexingOn(ceramic);
   spinner.succeed("composite deployed & ready for use");
 };

@@ -1,0 +1,6 @@
+type CredentialSubject
+  @createModel(accountRelation: LIST, description: "A verifiable credential subject")
+  @createIndex(fields: [{ path: "isTrusted" }]) {
+  subjectId: DID! @accountReference
+  isTrusted: Boolean!
+}
