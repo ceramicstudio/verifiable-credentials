@@ -19,7 +19,9 @@ export default async function createCredential(
         verifiableCredentialJWTIndex(last: 1){
             edges {
                 node {
-                    issuer 
+                    issuer {
+                      id
+                    }
                     context
                     type
                     credentialSchema {

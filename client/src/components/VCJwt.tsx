@@ -53,7 +53,9 @@ const Credential = () => {
                 /"([^"]+)":/g,
                 "$1:"
               )}
-              issuer: "${toJson.issuer.id}"
+              issuer: {
+                  id: "${toJson.issuer.id}"
+                }
               type: ${JSON.stringify(toJson.type).replace(/"([^"]+)":/g, "$1:")}
               credentialSchema: ${JSON.stringify(
                 toJson.credentialSchema
@@ -71,7 +73,9 @@ const Credential = () => {
         {
           document {
             id
-            issuer 
+            issuer {
+              id
+            }
             issuanceDate
             type
             context

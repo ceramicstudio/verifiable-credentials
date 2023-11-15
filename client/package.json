@@ -40,6 +40,7 @@
     "exec": "^0.2.1",
     "gql-query-builder": "^3.8.0",
     "graphql": "^16.6.0",
+    "graphiql": "^2.2.0",
     "next": "^12.0.4",
     "ora": "^6.1.2",
     "react": "^18.0.0",

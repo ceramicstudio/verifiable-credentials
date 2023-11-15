@@ -46,7 +46,9 @@ export default async function createCredential(
         createVerifiableCredentialEIP712(input: {
           content: {
               context: ${JSON.stringify(toJson["@context"]).replace(/"([^"]+)":/g, "$1:")}
-              issuer: "${toJson.issuer}"
+              issuer: {
+                  id: "${toJson.issuer}"
+                }
               type: ${JSON.stringify(toJson.type).replace(/"([^"]+)":/g, "$1:")}
               credentialSchema: ${JSON.stringify(
                 toJson.credentialSchema
@@ -78,7 +80,9 @@ export default async function createCredential(
         {
           document {
             id
-            issuer 
+            issuer {
+              id
+            }
             issuanceDate
             type
             context

@@ -21,7 +21,9 @@ export default async function createCredential(
         verifiableCredentialEIP712Index(last: 1){
             edges {
                 node {
-                    issuer
+                    issuer {
+                      id
+                    }
                     context
                     type
                     credentialSchema {

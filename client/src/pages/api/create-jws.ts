@@ -46,7 +46,9 @@ export default async function createCredential(
         createVerifiableCredentialJWT(input: {
           content: {
               context: ${JSON.stringify(toJson["@context"]).replace(/"([^"]+)":/g, "$1:")}
-              issuer: "${toJson.issuer.id}"
+              issuer: {
+                  id: "${toJson.issuer.id}"
+                }
               type: ${JSON.stringify(toJson.type).replace(/"([^"]+)":/g, "$1:")}
               credentialSchema: ${JSON.stringify(
                 toJson.credentialSchema
@@ -65,7 +67,9 @@ export default async function createCredential(
         {
           document {
             id
-            issuer
+            issuer {
+              id
+            }
             issuanceDate
             type
             context
