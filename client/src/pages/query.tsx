@@ -2,7 +2,6 @@
 import Head from "next/head";
 import Nav from "../components/Navbar";
 import styles from "./index.module.css";
-import Credential from "../components/VC712";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import * as LitJsSdk from "@lit-protocol/lit-node-client";
@@ -12,14 +11,10 @@ import { GraphiQL } from "graphiql";
 import { definition } from "../__generated__/definition.js";
 import { ComposeClient } from "@composedb/client";
 import "graphiql/graphiql.min.css";
-import { useComposeDB } from "../fragments";
 
 const Home: NextPage = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
   const [lit, setLit] = useState<ILitNodeClient>();
-  // const [address, setAddress] = useState<string>("");
-  const { address, isConnecting, isDisconnected } = useAccount();
-  const { isAuthenticated } = useComposeDB();
+  const { isDisconnected } = useAccount();
 
   const handleLogin = async () => {
     const thisLit = startLitClient(window);
