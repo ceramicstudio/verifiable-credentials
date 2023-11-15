@@ -9,13 +9,13 @@ This directory contains a simple frontend interface, the Ceramic server configur
 Install your dependencies:
 
 ```bash
-yarn install
+npm install
 ```
 
 2. Generate your admin seed, admin did, and ComposeDB configuration file:
 
 ```bash
-yarn generate
+npm run generate
 ```
 
 3. Create a .env file with a SECRET_KEY - feel free to copy-paste the dummy seed in the .env.example file.
@@ -24,7 +24,7 @@ yarn generate
 
 ```bash
 nvm use 16
-yarn dev
+npm run dev
 ```
 
 5. Visit `http://localhost:3000/` to generate, store, and verify EIP712 Verifiable Credentials

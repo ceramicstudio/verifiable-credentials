@@ -45,7 +45,7 @@ const Credential = () => {
     const credential = await fetch("/api/query");
     const toJsonCredential = await credential.json();
     const bodyToSend =
-      toJsonCredential.data.verifiableCredentialIndex.edges[0].node;
+      toJsonCredential.data.verifiableCredentialEIP712Index.edges[0].node;
     const final = { ...bodyToSend, "@context": bodyToSend.context };
     delete final.context;
     console.log(final);

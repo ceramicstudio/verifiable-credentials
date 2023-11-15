@@ -29,9 +29,7 @@ const Credential = () => {
       createVerifiableCredentialJWS: {
         document: {
           id: string;
-          issuer: {
-            id: string;
-          };
+          issuer: string
           issuanceDate: string;
           type: string[];
           context: string[];
@@ -49,13 +47,15 @@ const Credential = () => {
       };
     }>(`
       mutation {
-        createVerifiableCredentialJWS(input: {
+        createVerifiableCredentialJWT(input: {
           content: {
               context: ${JSON.stringify(toJson["@context"]).replace(
                 /"([^"]+)":/g,
                 "$1:"
               )}
-              issuer: "${toJson.issuer.id}"
+              issuer: {
+                  id: "${toJson.issuer.id}"
+                }
               type: ${JSON.stringify(toJson.type).replace(/"([^"]+)":/g, "$1:")}
               credentialSchema: ${JSON.stringify(
                 toJson.credentialSchema
@@ -101,7 +101,7 @@ const Credential = () => {
     const credential = await fetch("/api/query-jws");
     const toJsonCredential = await credential.json();
     const bodyToSend =
-      toJsonCredential.data.verifiableCredentialJWSIndex.edges[0].node;
+      toJsonCredential.data.verifiableCredentialJWTIndex.edges[0].node;
     const final = { ...bodyToSend, "@context": bodyToSend.context };
     delete final.context;
     console.log(final);

@@ -22,34 +22,28 @@ export const writeComposite = async (spinner) => {
   await authenticate();
   spinner.info("writing composite to Ceramic");
 
-  const vcComposite = await createComposite(
+  const verifiableCredentialComposite = await createComposite(
+    //@ts-ignore
     ceramic,
     "./composites/00-verifiableCredential.graphql"
   );
 
-  const jwtComposite = await createComposite(
-    ceramic,
-    "./composites/01-verifiableCredentialJwt.graphql"
-  );
-
-  const composite = Composite.from([
-    vcComposite,
-    jwtComposite
-  ]);
-
-  await writeEncodedComposite(composite, "./src/__generated__/definition.json");
+  await writeEncodedComposite(verifiableCredentialComposite, "./src/__generated__/definition.json");
   spinner.info("creating composite for runtime usage");
   await writeEncodedCompositeRuntime(
+    //@ts-ignore
     ceramic,
     "./src/__generated__/definition.json",
     "./src/__generated__/definition.js"
   );
   spinner.info("deploying composite");
   const deployComposite = await readEncodedComposite(
+    //@ts-ignore
     ceramic,
     "./src/__generated__/definition.json"
   );
 
+  // @ts-ignore
   await deployComposite.startIndexingOn(ceramic);
   spinner.succeed("composite deployed & ready for use");
 };

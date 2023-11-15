@@ -1,0 +1,35 @@
+type CredentialSubject @loadModel(id: "$SUBJECT_ID") {
+  id: ID!
+}
+
+type JWSGeneric
+  @createModel(accountRelation: LIST, description: "A verifiable credential in generic form")
+  @createIndex(fields: [{ path: "context" }])
+  @createIndex(fields: [{ path: "issuanceDate" }]) {
+  controller: DID! @documentAccount
+  issuer: DID! @accountReference
+  context: [String!]! @string(maxLength: 1000) @list(maxLength: 100)
+  type: [String!]! @string(maxLength: 1000) @list(maxLength: 100)
+  credentialSchema: CredentialSchema!
+  issuanceDate: DateTime!
+  credentialSubjectID: StreamID! @documentReference(model: "CredentialSubject")
+  credentialSubject: CredentialSubject! @relationDocument(property: "credentialSubjectID")
+  proof: Proof!
+}
+
+type Types {
+  name: String! @string(maxLength: 100)
+  type: String! @string(maxLength: 100)
+}
+
+type CredentialSchema {
+  id: String! @string(maxLength: 1000)
+  type: String! @string(maxLength: 1000)
+}
+
+type Proof {
+  type: String! @string(maxLength: 1000)
+  jwt: String! @string(maxLength: 100000)
+}
+
+

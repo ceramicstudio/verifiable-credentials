@@ -18,12 +18,12 @@ export default async function createCredential(
   try {
     const data: any = await composeClient.executeQuery(`
       query {
-        verifiableCredentialIndex(last: 1){
+        verifiableCredentialEIP712Index(last: 1){
             edges {
                 node {
                     issuer {
-                        id
-                      }
+                      id
+                    }
                     context
                     type
                     credentialSchema {
