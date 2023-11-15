@@ -135,7 +135,7 @@ query VerifiableCredentialsAll {
       {!isDisconnected ? (
         <main className={styles.main}>
           {lit && (
-            <div style={{ height: "60rem", width: "100%", margin: "auto" }}>
+            <div style={{ height: "60rem", width: "90%", margin: "auto" }}>
                 {/* @ts-ignore */}
               <GraphiQL fetcher={fetcher} storage={null} defaultTabs={Queries.values}/>
             </div>
