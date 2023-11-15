@@ -9,7 +9,7 @@ export async function verify(cred: any) {
         isTrusted: cred.credentialSubject.isTrusted,
         id: cred.credentialSubject.id.id,
       },
-      issuer: cred.issuer.id,
+      issuer: cred.issuer,
       type: cred.type,
       "@context": cred["@context"],
       credentialSchema: cred.credentialSchema,

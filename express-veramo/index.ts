@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import { verify } from "./src/verify-credential-712.js";
 import { verifyJWT } from "./src/verify-credential-jws.js";
-import { verifyJWTGeneric } from "./src/verify-credential-jws-generic.js";
 import { createCredential } from "./src/create-credential-712.js";
 import { createjwt } from "./src/create-credential-jws.js";
 import { listIdentifiers } from "./src/list-identifiers.js";
@@ -56,12 +55,6 @@ app.post("/create-jws", async (req, res) => {
 app.post("/verify-jws", async (req, res) => {
   const { final } = req.body;
   const verifiable = await verifyJWT(final);
-  res.json(verifiable);
-});
-
-app.post("/verify-jws-generic", async (req, res) => {
-  const { final } = req.body;
-  const verifiable = await verifyJWTGeneric(final);
   res.json(verifiable);
 });
 

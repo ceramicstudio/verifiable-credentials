@@ -9,7 +9,7 @@ export async function verifyJWT(cred: any) {
         isTrusted: cred.credentialSubject.isTrusted,
         id: cred.credentialSubject.id.id,
       },
-      issuer: cred.issuer,
+      issuer: {id: cred.issuer},
       type: cred.type,
       "@context": cred["@context"],
       credentialSchema: cred.credentialSchema,
