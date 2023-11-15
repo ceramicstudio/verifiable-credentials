@@ -16,12 +16,10 @@ export default async function createCredential(
   try {
     const data: any = await composeClient.executeQuery(`
       query {
-        verifiableCredentialJWSIndex(last: 1){
+        verifiableCredentialJWTIndex(last: 1){
             edges {
                 node {
-                    issuer {
-                        id
-                      }
+                    issuer 
                     context
                     type
                     credentialSchema {

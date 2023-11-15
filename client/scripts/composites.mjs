@@ -25,23 +25,8 @@ export const writeComposite = async (spinner) => {
   const verifiableCredentialComposite = await createComposite(
     //@ts-ignore
     ceramic,
-    "./composites/01-verifiableCredential.graphql"
+    "./composites/00-verifiableCredential.graphql"
   );
-
-  // const verifiableCredentialSchema = readFileSync("./composites/01-verifiableCredential.graphql", {
-  //   encoding: "utf-8",
-  // // @ts-ignore
-  // }).replace("$SUBJECT_ID", subjectComposite.modelIDs[0]);
-
-  // const verifiableCredentialComposite = await Composite.create({
-  //   //@ts-ignore
-  //   ceramic,
-  //   schema: verifiableCredentialSchema,
-  // });
-
-  // const composite = Composite.from([
-  //   verifiableCredentialComposite
-  // ]);
 
   await writeEncodedComposite(verifiableCredentialComposite, "./src/__generated__/definition.json");
   spinner.info("creating composite for runtime usage");

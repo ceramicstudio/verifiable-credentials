@@ -29,13 +29,12 @@ export default async function createCredential(
     const key = fromString(seed, "base16");
     const provider = new Ed25519Provider(key);
     const staticDid = new DID({
-      // @ts-expect-error: Ignore type error
       resolver: KeyResolver.getResolver(),
       provider,
     });
     await staticDid.authenticate();
     ceramic.did = staticDid;
-    composeClient.setDID(staticDid);
+    composeClient.setDID(staticDid as any);
     return staticDid;
   };
 
