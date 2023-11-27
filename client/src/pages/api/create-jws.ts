@@ -73,6 +73,10 @@ export default async function createCredential(
             issuanceDate
             type
             context
+            credentialSchema{
+              id
+              type
+            }
             credentialSubject{
               id {
                 id
