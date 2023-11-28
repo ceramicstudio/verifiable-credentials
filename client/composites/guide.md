@@ -15,6 +15,8 @@ This draft translates the concepts of assertions made by communities to assess t
 
 This draft also assumed that the W3C Verifiable Credential standard will be used as the assertion standard across all claims generated in this system. 
 
+Corresponding GraphQL file can be found [here](./00-verifiableCredential.graphql).
+
 ## Specification
 The following section will begin by defining the general interface for Verifiable Credentials on ComposeDB before defining the specific interfaces and types relevant to the software component claims. The reasoning is to enable data interoperability across the Verifiable Credential class of data, therefore improving querying efficiency by allowing both broad and granular queries. 
 
