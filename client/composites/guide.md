@@ -133,6 +133,11 @@ type Domain {
 - [Verifiable Credentials](https://www.w3.org/TR/vc-data-model/#contexts) use the `@context` property to define an ordered set
 - Verifiable Credentials will therefore require simple deconstruction and reconstruction to account for this field naming convention when being saved to ComposeDB, and when being later recalled and reconstructed for verification
 
+#### Field: "issuer"
+- [W3C issuer definition](https://www.w3.org/TR/vc-data-model/#issuer) intakes either an object containing an id property, or a URI
+- `Or` logic like this is not supported in ComposeDB
+- Therefore, the compromise made here is a type with a mandatory `id` field and an optional `name`
+
 #### Optional Fields
 - [credentialStatus](https://www.w3.org/TR/vc-data-model/#status) and [expirationDate](https://www.w3.org/TR/vc-data-model/#expiration) are marked as optional, which matched up to the W3C definitions
 - These may or may not be applicable to the specific system this guide discusses, but are included to help future-proof the parent definitions
